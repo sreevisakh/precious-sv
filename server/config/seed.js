@@ -7,8 +7,9 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Place = require('../api/place/place.model');
 
-Thing.find({}).remove(function() {
+Thing.find({}).remove(function () {
   Thing.create({
     name : 'Development Tools',
     info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
@@ -24,7 +25,7 @@ Thing.find({}).remove(function() {
   },  {
     name : 'Optimized Build',
     info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
-  },{
+  }, {
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
   });
@@ -43,7 +44,31 @@ User.find({}).remove(function() {
     email: 'admin@admin.com',
     password: 'admin'
   }, function() {
-      console.log('finished populating users');
-    }
+    console.log('finished populating users');
+  }
   );
+});
+
+Place.find({}).remove(function () {
+  Place.create({
+    name: "Kundanahalli Gat",
+    city: "Bangalore",
+    pincode: "560037",
+    location: [-10, -27],
+    active: true
+  },{
+    name: "Maathahalli Bridge",
+    city: "Bangalore",
+    pincode: "560037",
+    location: [-10, -27],
+    active: true
+  },{
+    name: "Trinity Circle",
+    city: "Bangalore",
+    pincode: "560001",
+    location: [-10, -27],
+    active: true
+  }, function () {
+    console.log('finished populating places');
+  });
 });
